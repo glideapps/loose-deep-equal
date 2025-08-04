@@ -1,17 +1,40 @@
 {
-  "name": "deep-equal",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "deep-equal": "^2.2.3",
-    "fast-deep-equal": "^3.1.1",
-    "lodash": "^4.17.21"
-  }
+    "name": "loose-deep-equal",
+    "version": "0.0.1",
+    "description": "Fast deep equality comparison that treats missing properties as equal to undefined",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "scripts": {
+        "test": "node test/run-all.js",
+        "benchmark": "node benchmark/index.js"
+    },
+    "keywords": [
+        "deep",
+        "equal",
+        "equality",
+        "compare",
+        "comparison",
+        "object",
+        "undefined",
+        "fast",
+        "loose"
+    ],
+    "author": "",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/loose-deep-equal.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yourusername/loose-deep-equal/issues"
+    },
+    "homepage": "https://github.com/yourusername/loose-deep-equal#readme",
+    "devDependencies": {
+        "deep-equal": "^2.2.3",
+        "fast-deep-equal": "^3.1.1",
+        "lodash": "^4.17.21"
+    },
+    "engines": {
+        "node": ">=6.0.0"
+    }
 }

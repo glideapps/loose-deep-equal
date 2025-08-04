@@ -1,0 +1,27 @@
+# Test files
+test/
+*.test.js
+*.spec.js
+
+# Development files
+.gitignore
+.eslintrc*
+.prettierrc*
+
+# CI/CD
+.travis.yml
+.github/
+.circleci/
+
+# Documentation source
+docs/
+
+# Examples
+examples/
+
+# Benchmarks
+benchmark/
+
+# Coverage
+coverage/
+.nyc_output/
