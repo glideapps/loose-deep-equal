@@ -1,8 +1,7 @@
 const fastDeepEqual = require('fast-deep-equal');
 const fastDeepEqualUndefined = require('./fast-deep-equal-undefined');
-const fastDeepEqualUndefinedV2 = require('./fast-deep-equal-undefined-v2');
 
-// Helper to test all three versions
+// Helper to test both versions
 function testAll(name, a, b, description) {
   console.log(`\n${name}:`);
   if (description) console.log(`  ${description}`);
@@ -34,20 +33,12 @@ function testAll(name, a, b, description) {
     console.log(`  Original: Error - ${e.message}`);
   }
   
-  // Test modified v1
+  // Test modified
   try {
     const result = fastDeepEqualUndefined(a, b);
-    console.log(`  Modified v1: ${result}`);
+    console.log(`  Modified: ${result}`);
   } catch (e) {
-    console.log(`  Modified v1: Error - ${e.message}`);
-  }
-  
-  // Test modified v2
-  try {
-    const result = fastDeepEqualUndefinedV2(a, b);
-    console.log(`  Modified v2: ${result}`);
-  } catch (e) {
-    console.log(`  Modified v2: Error - ${e.message}`);
+    console.log(`  Modified: Error - ${e.message}`);
   }
 }
 
@@ -301,18 +292,8 @@ try {
 }
 const time2 = Date.now() - start2;
 
-const start3 = Date.now();
-let result3;
-try {
-  result3 = fastDeepEqualUndefinedV2(bigObj1, bigObj2);
-} catch (e) {
-  result3 = `Error: ${e.message}`;
-}
-const time3 = Date.now() - start3;
-
 console.log(`  Original: ${result1} (${time1}ms)`);
-console.log(`  Modified v1: ${result2} (${time2}ms)`);
-console.log(`  Modified v2: ${result3} (${time3}ms)`);
+console.log(`  Modified: ${result2} (${time2}ms)`);
 
 console.log('\n' + '='.repeat(60));
 console.log('Additional edge case testing completed!');

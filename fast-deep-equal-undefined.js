@@ -17,8 +17,19 @@ module.exports = function equal(a, b) {
     }
 
     if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
-    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
-    if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
+    
+    // Handle objects with null prototype
+    var aValueOf = a.valueOf;
+    var bValueOf = b.valueOf;
+    if (aValueOf && bValueOf && aValueOf !== Object.prototype.valueOf) {
+      return aValueOf.call(a) === bValueOf.call(b);
+    }
+    
+    var aToString = a.toString;
+    var bToString = b.toString;
+    if (aToString && bToString && aToString !== Object.prototype.toString) {
+      return aToString.call(a) === bToString.call(b);
+    }
 
     keys = Object.keys(a);
     length = keys.length;
