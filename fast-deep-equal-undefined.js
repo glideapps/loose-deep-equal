@@ -38,15 +38,25 @@ module.exports = function equal(a, b) {
     }
     
     // Slow path: different number of keys, need to check all from both objects
-    var keysB = Object.keys(b);
-    var allKeys = new Set([...keys, ...keysB]);
-    
-    // Compare all properties, treating missing ones as undefined
-    for (var key of allKeys) {
-      var aVal = a.hasOwnProperty(key) ? a[key] : undefined;
+    // First iteration: check all keys from object a
+    for (i = length; i-- !== 0;) {
+      var key = keys[i];
+      var aVal = a[key];
       var bVal = b.hasOwnProperty(key) ? b[key] : undefined;
       
       if (!equal(aVal, bVal)) return false;
+    }
+    
+    // Second iteration: check keys from b that are NOT in a
+    var keysB = Object.keys(b);
+    for (i = keysB.length; i-- !== 0;) {
+      var key = keysB[i];
+      if (!a.hasOwnProperty(key)) {
+        // a doesn't have this key, so aVal is undefined
+        // bVal is b[key] (we know it exists since it's in keysB)
+        if (!equal(undefined, b[key])) return false;
+      }
+      // If a has the key, we already checked it in the first loop
     }
 
     return true;
