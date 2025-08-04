@@ -42,7 +42,7 @@ module.exports = function equal(a, b) {
     for (i = length; i-- !== 0;) {
       var key = keys[i];
       var aVal = a[key];
-      var bVal = b.hasOwnProperty(key) ? b[key] : undefined;
+      var bVal = Object.prototype.hasOwnProperty.call(b, key) ? b[key] : undefined;
       
       if (!equal(aVal, bVal)) return false;
     }
@@ -51,7 +51,7 @@ module.exports = function equal(a, b) {
     var keysB = Object.keys(b);
     for (i = keysB.length; i-- !== 0;) {
       var key = keysB[i];
-      if (!a.hasOwnProperty(key)) {
+      if (!Object.prototype.hasOwnProperty.call(a, key)) {
         // a doesn't have this key, so aVal is undefined
         // bVal is b[key] (we know it exists since it's in keysB)
         if (!equal(undefined, b[key])) return false;
