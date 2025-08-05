@@ -31,12 +31,12 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/yourusername/loose-deep-equal.git"
+        "url": "https://github.com/glideapps/loose-deep-equal.git"
     },
     "bugs": {
-        "url": "https://github.com/yourusername/loose-deep-equal/issues"
+        "url": "https://github.com/glideapps/loose-deep-equal/issues"
     },
-    "homepage": "https://github.com/yourusername/loose-deep-equal#readme",
+    "homepage": "https://github.com/glideapps/loose-deep-equal#readme",
     "devDependencies": {
         "deep-equal": "^2.2.3",
         "fast-deep-equal": "^3.1.1",
