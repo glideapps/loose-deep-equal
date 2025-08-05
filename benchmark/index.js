@@ -1,4 +1,4 @@
-const looseEqual = require('../index');
+const looseEqual = require('../src/index');
 const fastDeepEqual = require('fast-deep-equal');
 const { isEqual } = require('lodash');
 

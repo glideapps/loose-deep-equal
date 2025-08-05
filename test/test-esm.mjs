@@ -1,6 +1,6 @@
 // Test ESM imports
-import looseEqualDefault from '../index.mjs';
-import { looseEqual as looseEqualNamed } from '../index.mjs';
+import looseEqualDefault from '../src/index.mjs';
+import { looseEqual as looseEqualNamed } from '../src/index.mjs';
 
 console.log('Testing ESM imports...\n');
 

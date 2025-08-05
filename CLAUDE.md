@@ -26,23 +26,52 @@ node test/test-esm.mjs                     # ESM import test
 npm run benchmark
 
 # Run specific benchmarks
-node benchmark-with-undefined.js     # Detailed undefined equality benchmarks
-node benchmark-large-json.js         # Large JSON file test (requires /tmp/app.json)
-node edge-cases.js                  # Edge case comparisons
+node benchmark/benchmark-with-undefined.js     # Detailed undefined equality benchmarks
+node benchmark/benchmark-large-json.js         # Large JSON file test (requires /tmp/app.json)
+node benchmark/edge-cases.js                  # Edge case comparisons
 ```
 
 ### Development Testing
 ```bash
 # Test specific edge cases
-node test-undefined-equality.js      # Basic undefined equality tests
-node test-malicious-objects.js       # Security tests
-node test-comprehensive-edge-cases.js # All edge cases
-node test-undefined-specific.js      # Undefined-specific behaviors
+node test/test-undefined-equality.js      # Basic undefined equality tests
+node test/test-malicious-objects.js       # Security tests
+node test/test-comprehensive-edge-cases.js # All edge cases
+node test/test-undefined-specific.js      # Undefined-specific behaviors
+```
+
+## Directory Structure
+
+```
+loose-deep-equal/
+├── src/                    # Main source code
+│   ├── index.js           # CommonJS entry point
+│   ├── index.mjs          # ESM wrapper
+│   └── index.d.ts         # TypeScript definitions
+├── test/                   # All test files
+│   ├── test.js            # Core functionality tests
+│   ├── test-fast-deep-equal-suite.js    # fast-deep-equal test adapter
+│   ├── fast-deep-equal-tests.js         # Original test data
+│   ├── fast-deep-equal-es6tests.js      # ES6 test data
+│   ├── test-commonjs.js   # CommonJS import test
+│   ├── test-esm.mjs       # ESM import test
+│   ├── run-all.js         # Test runner
+│   └── [various edge case test files]
+├── benchmark/              # Benchmark files
+│   ├── index.js           # Main benchmark suite
+│   ├── benchmark-with-undefined.js
+│   ├── benchmark-large-json.js
+│   └── edge-cases.js
+├── package.json           # Package configuration
+├── README.md              # User documentation
+├── CLAUDE.md              # AI assistant guidance
+├── LICENSE                # MIT license
+└── .npmignore             # NPM publish configuration
 ```
 
 ## Architecture
 
-### Core Implementation (`index.js`)
+### Core Implementation (`src/index.js`)
 The main implementation with key features:
 - **Fast path**: When objects have same number of keys, uses original fast-deep-equal algorithm
 - **Slow path**: When key counts differ, uses optimized double-loop to check all properties
@@ -50,9 +79,9 @@ The main implementation with key features:
 - **Safety**: Uses `Object.prototype.hasOwnProperty.call()` to avoid prototype pollution
 
 ### Module Support
-- `index.js` - CommonJS entry point
-- `index.mjs` - ESM wrapper providing default and named exports
-- `index.d.ts` - TypeScript definitions for both import styles
+- `src/index.js` - CommonJS entry point
+- `src/index.mjs` - ESM wrapper providing default and named exports
+- `src/index.d.ts` - TypeScript definitions for both import styles
 
 ### Test Structure
 - `test/test.js` - Core functionality tests

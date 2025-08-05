@@ -2,14 +2,14 @@
     "name": "loose-deep-equal",
     "version": "0.0.1",
     "description": "JavaScript fast deep equality, but treating missing/undefined properties as equal",
-    "main": "index.js",
-    "module": "index.mjs",
-    "types": "index.d.ts",
+    "main": "src/index.js",
+    "module": "src/index.mjs",
+    "types": "src/index.d.ts",
     "exports": {
         ".": {
-            "require": "./index.js",
-            "import": "./index.mjs",
-            "types": "./index.d.ts"
+            "require": "./src/index.js",
+            "import": "./src/index.mjs",
+            "types": "./src/index.d.ts"
         }
     },
     "scripts": {

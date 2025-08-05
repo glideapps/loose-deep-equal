@@ -1,6 +1,6 @@
 'use strict';
 
-const looseEqual = require('../index');
+const looseEqual = require('../src/index');
 const assert = require('assert');
 
 // Load test suites

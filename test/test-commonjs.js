@@ -1,5 +1,5 @@
 // Test CommonJS import
-const looseEqual = require('../index.js');
+const looseEqual = require('../src/index.js');
 
 console.log('Testing CommonJS import...\n');
 

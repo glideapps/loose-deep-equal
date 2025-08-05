@@ -1,6 +1,6 @@
 'use strict';
 
-const looseEqual = require('../index');
+const looseEqual = require('../src/index');
 const assert = require('assert');
 
 console.log('Running loose-deep-equal tests...\n');
