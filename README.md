@@ -1,5 +1,8 @@
 # loose-deep-equal
 
+[![Tests](https://github.com/glideapps/loose-deep-equal/actions/workflows/test.yml/badge.svg)](https://github.com/glideapps/loose-deep-equal/actions/workflows/test.yml)
+[![npm version](https://badge.fury.io/js/loose-deep-equal.svg)](https://www.npmjs.com/package/loose-deep-equal)
+
 Fast deep equality comparison that treats missing properties as equal to `undefined`.
 
 ## Why?
