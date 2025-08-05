@@ -2,6 +2,9 @@
 test/
 *.test.js
 *.spec.js
+test-*.js
+*.test.mjs
+*.spec.mjs
 
 # Development files
 .gitignore
