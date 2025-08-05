@@ -10,6 +10,9 @@ test-*.js
 .gitignore
 .eslintrc*
 .prettierrc*
+.git/
+.claude/
+CLAUDE.md
 
 # CI/CD
 .travis.yml
@@ -18,6 +21,7 @@ test-*.js
 
 # Documentation source
 docs/
+benchmark-summary.md
 
 # Examples
 examples/
@@ -28,3 +32,9 @@ benchmark/
 # Coverage
 coverage/
 .nyc_output/
+
+# Other dev files
+*.log
+.DS_Store
+node_modules/
+package-lock.json
