@@ -1,7 +1,7 @@
 {
     "name": "loose-deep-equal",
     "version": "0.0.1",
-    "description": "Fast deep equality comparison that treats missing properties as equal to undefined",
+    "description": "JavaScript fast deep equality, but treating missing/undefined properties as equal",
     "main": "index.js",
     "module": "index.mjs",
     "types": "index.d.ts",
