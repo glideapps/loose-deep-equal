@@ -1,6 +1,6 @@
 {
     "name": "loose-deep-equal",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "JavaScript fast deep equality, but treating missing/undefined properties as equal",
     "main": "src/index.js",
     "module": "src/index.mjs",
@@ -39,7 +39,7 @@
     "homepage": "https://github.com/glideapps/loose-deep-equal#readme",
     "devDependencies": {
         "deep-equal": "^2.2.3",
-        "fast-deep-equal": "^3.1.1",
+        "fast-deep-equal": "^3.1.3",
         "lodash": "^4.17.21"
     },
     "engines": {

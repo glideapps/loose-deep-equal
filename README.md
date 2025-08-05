@@ -19,7 +19,6 @@ But in many real-world scenarios (API responses, optional fields, configuration 
 
 - 🚀 **Fast** - Optimized for performance with early exits and minimal overhead
 - 🎯 **Loose equality** - Missing properties are treated as `undefined`
-- 🛡️ **Safe** - Handles circular references, null prototypes, and edge cases
 - 📦 **Zero dependencies** - Small and self-contained
 - 🔧 **Drop-in replacement** - Compatible with other deep equality functions
 - 🆕 **ES6+ Support** - Full support for Maps, Sets, TypedArrays, and BigInt
@@ -139,12 +138,19 @@ The algorithm:
 
 ## Edge cases handled
 
-- ✅ Circular references (throws like other deep equal libraries)
 - ✅ Objects with null prototype
 - ✅ Objects with overridden `hasOwnProperty`
-- ✅ Sparse arrays
+- ✅ Sparse arrays (holes treated as `undefined`)
 - ✅ Symbol properties (ignored, like other libraries)
 - ✅ Non-enumerable properties (ignored)
+- ⚠️  Arrays with extra properties: Only numeric indices are compared, extra properties are ignored. This matches `fast-deep-equal` behavior.
+  ```js
+  const arr1 = [1, 2, 3];
+  arr1.customProp = 'value1';
+  const arr2 = [1, 2, 3];
+  arr2.customProp = 'value2';
+  looseEqual(arr1, arr2); // true - extra properties ignored
+  ```
 
 ## API
 

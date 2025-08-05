@@ -69,7 +69,8 @@ module.exports = function equal(a, b) {
 
     keys = Object.keys(a);
     length = keys.length;
-    var bLength = Object.keys(b).length;
+    var keysB = Object.keys(b);
+    var bLength = keysB.length;
     
     // Fast path: if same number of keys, use original algorithm
     if (length === bLength) {
@@ -95,7 +96,6 @@ module.exports = function equal(a, b) {
     }
     
     // Second iteration: check keys from b that are NOT in a
-    var keysB = Object.keys(b);
     for (i = keysB.length; i-- !== 0;) {
       var key = keysB[i];
       if (!Object.prototype.hasOwnProperty.call(a, key)) {

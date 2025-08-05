@@ -97,6 +97,22 @@ const time = Date.now() - start;
 test('Large objects (1000 properties)', bigObj1, bigObj2, true);
 console.log(`  Performance: ${time}ms for 1000 properties`);
 
+// Test sparse arrays
+test('sparse array equals dense array with undefined', [1, , 3], [1, undefined, 3], true);
+test('identical sparse arrays are equal', [1, , , 4], [1, , , 4], true);
+test('empty sparse array equals dense undefined array', new Array(5), [undefined, undefined, undefined, undefined, undefined], true);
+
+// Test arrays with extra properties (current behavior - only compares indices)
+const arrWithProp1 = [1, 2, 3];
+arrWithProp1.customProp = 'extra';
+const arrWithProp2 = [1, 2, 3];
+arrWithProp2.customProp = 'different';
+test('arrays with extra properties (different values)', arrWithProp1, arrWithProp2, true);
+
+const arrWithUndef = [1, 2, 3];
+arrWithUndef.customProp = undefined;
+test('array with undefined property vs array without property', arrWithUndef, [1, 2, 3], true);
+
 // Summary
 console.log('\n' + '='.repeat(40));
 console.log(`Tests passed: ${passed}`);
